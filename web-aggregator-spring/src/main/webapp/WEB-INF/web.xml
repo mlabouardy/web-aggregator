@@ -21,4 +21,7 @@
     <url-pattern>*.json</url-pattern>
     <url-pattern>*.xml</url-pattern>
   </servlet-mapping>
+  <listener>
+  	<listener-class>org.springframework.web.ContextLoaderListener</listener-class>
+  </listener>
 </web-app>
