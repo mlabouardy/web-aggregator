@@ -14,10 +14,20 @@
     
     <authentication-manager>
     	<authentication-provider>
-    		<user-service>
+    		<!--   <user-service>
     			<user name="med" password="med" authorities="ROLE_USER"/>
     			<user name="admin" password="admin" authorities="ROLE_ADMIN"/>
     		</user-service>
+    		-->
+    		
+			<password-encoder hash="bcrypt" />
+
+			<jdbc-user-service data-source-ref="dataSource"
+				authorities-by-username-query="select user.name, role.name from user
+											   join role on user.id = role.users_id
+											   join role on role.roles_id = role.id
+											   where user.name = ?"
+				users-by-username-query="select name,password,1 from user where name = ?" />
     	</authentication-provider>
     </authentication-manager>
 

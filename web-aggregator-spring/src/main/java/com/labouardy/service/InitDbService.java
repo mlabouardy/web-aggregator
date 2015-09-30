@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +47,8 @@ public class InitDbService {
 		User userAdmin=new User();
 		userAdmin.setName("admin");
 		userAdmin.setEmail("mohamed@labouardy.com");
-		userAdmin.setPassword("sinworm");
+		BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
+		userAdmin.setPassword(bCryptPasswordEncoder.encode("sinworm"));
 		List<Role> listOfRoles=new ArrayList();
 		listOfRoles.add(roleAdmin);
 		userAdmin.setRoles(listOfRoles);
