@@ -14,8 +14,20 @@
     </definition>
     
      <definition name="users" extends="common">
-         <put-attribute name="title" value="Web agregator 2" />
+         <put-attribute name="title" value="Users" />
     	 <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
     	 <put-attribute name="current" value="users"></put-attribute>
+    </definition>
+    
+     <definition name="user-detail" extends="common">
+         <put-attribute name="title" value="User detail" />
+    	 <put-attribute name="body" value="/WEB-INF/jsp/user-detail.jsp" />
+    	 <put-attribute name="current" value="user-detail"></put-attribute>
+    </definition>
+    
+    <definition name="register" extends="common">
+         <put-attribute name="title" value="User Registration" />
+    	 <put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
+    	 <put-attribute name="current" value="register"></put-attribute>
     </definition>
 </tiles-definitions>
