@@ -1,5 +1,7 @@
 package com.labouardy.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +44,13 @@ public class UserController {
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String signUP(@ModelAttribute("user") User user){
 		userService.save(user);
-		return "users";
+		return "redirect:/register.html?success=true";
+	}
+	
+	@RequestMapping("/profile")
+	public String profile(Model model, Principal principal){
+		String name=principal.getName();
+		model.addAttribute("user",userService.findOneWithBlogs(name));
+		return "user-detail";
 	}
 }

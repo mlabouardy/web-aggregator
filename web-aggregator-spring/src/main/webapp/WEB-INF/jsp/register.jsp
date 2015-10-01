@@ -3,6 +3,11 @@
 <%@ include file="../layout/taglib.jsp" %>
 
 <form:form commandName="user">
+	<c:if test="${param.success eq true}">
+		<div class="alert alert-success">
+			Registration successful !
+		</div>
+	</c:if>
 	<div class="form-group">
 		<label for="name">Name:</label> 
 		<form:input path="name" cssClass="form-control" id="inputName" />

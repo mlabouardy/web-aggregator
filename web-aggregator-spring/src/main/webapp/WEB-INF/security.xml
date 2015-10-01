@@ -8,6 +8,7 @@
 
 	<http auto-config="true" use-expressions="true">
     	<intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')" />
+    	<intercept-url pattern="/profile**" access="hasRole('ROLE_USER')" />
     	<form-login login-page="/login.html"/>
     	<logout logout-url="/logout"/>
     </http>
@@ -23,11 +24,11 @@
 			<password-encoder hash="bcrypt" />
 
 			<jdbc-user-service data-source-ref="dataSource"
-				authorities-by-username-query="select user.name, role.name from user
-											   join role on user.id = role.users_id
-											   join role on role.roles_id = role.id
-											   where user.name = ?"
-				users-by-username-query="select name,password,1 from user where name = ?" />
+				authorities-by-username-query="select User.name, Role.name from User
+											   join User_Role on User.id = User_Role.users_id
+											   join Role on User_Role.roles_id = Role.id
+											   where User.name = ?"
+				users-by-username-query="select name,password,enabled from User where name = ?" />
     	</authentication-provider>
     </authentication-manager>
 

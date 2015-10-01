@@ -53,6 +53,10 @@
 							<li class="${current == 'users' ? 'active':''}"><a
 								href="<spring:url value="/users.html"/>">Users</a></li>
 						</security:authorize>
+						<security:authorize access="isAuthenticated()">
+							<li class="${current == 'user-detail' ? 'active':''}"><a
+							href="<spring:url value="/profile.html"/>">Profile</a></li>
+						</security:authorize>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<security:authorize access="!isAuthenticated()">

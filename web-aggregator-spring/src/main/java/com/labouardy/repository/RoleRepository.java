@@ -6,4 +6,6 @@ import com.labouardy.entity.Role;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
 
+	Role findRoleByName(String name);
+
 }
