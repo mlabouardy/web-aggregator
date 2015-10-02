@@ -250,7 +250,7 @@
 				<version>9.1.3.v20140225</version>
 				<configuration>
 					<httpConnector>
-						<port>8084</port>
+						<port>8083</port>
 					</httpConnector>
 				</configuration>
 			</plugin>
