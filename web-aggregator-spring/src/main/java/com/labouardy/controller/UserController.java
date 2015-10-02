@@ -10,8 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.labouardy.entity.Blog;
 import com.labouardy.entity.User;
@@ -61,6 +64,13 @@ public class UserController {
 		}
 		userService.save(user);
 		return "redirect:/register.html?success=true";
+	}
+	
+	@RequestMapping("/available")
+	@ResponseBody
+	public String isAvailable(@RequestParam String username){
+		boolean available=userService.findOneWithName(username)==null;
+		return ""+available;
 	}
 	
 	@RequestMapping("/profile")

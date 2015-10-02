@@ -3,6 +3,7 @@ package com.labouardy.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.ManyToAny;
 import org.hibernate.validator.constraints.Email;
 
+import com.labouardy.annotation.UniqueUsername;
+
 @Entity
 public class User {
 
@@ -22,6 +25,8 @@ public class User {
 	private Integer id;
 	
 	@Size(min=3, message="Name must be at least 3 characters")
+	@Column(unique=true)
+	@UniqueUsername(message="Username already exist")
 	private String name;
 	
 	@Email(message="Not an email")

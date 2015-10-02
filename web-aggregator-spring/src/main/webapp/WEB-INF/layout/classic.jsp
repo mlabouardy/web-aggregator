@@ -22,7 +22,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 <!-- JQuery -->
+
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <title><tiles:getAsString name="title" /></title>
 
 <!-- Latest compiled and minified JavaScript -->
